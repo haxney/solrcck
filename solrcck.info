@@ -1,7 +1,10 @@
 name = Apache Solr CCK facets
 description = Facets for Solr
+package = Apache Solr
 dependencies[] = apachesolr
 dependencies[] = search
+dependencies[] = content
+dependencies[] = number
 core = "6.x"
 php = 5.1.4
 
