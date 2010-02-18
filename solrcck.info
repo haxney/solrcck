@@ -5,6 +5,9 @@ dependencies[] = apachesolr
 dependencies[] = search
 dependencies[] = content
 dependencies[] = number
+dependencies[] = text
+dependencies[] = phone
+dependencies[] = link
 core = "6.x"
 php = 5.1.4
 

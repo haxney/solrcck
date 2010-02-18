@@ -6,12 +6,35 @@
 function solrcck_apachesolr_cck_fields_alter(&$mappings) {
   $mappings['number_integer'] = array(
     'optionwidgets_select' => array(
-      'display_callback' => 'solrcck_basic_field_callback',
       'index_type' => 'integer',
     ),
     'number' => array(
-      'display_callback' => 'solrcck_basic_field_callback',
       'index_type' => 'integer',
+    ),
+  );
+  $mappings['text'] = array(
+    'text_textarea' => array(
+      'index_type' => 'string',
+    ),'text_textfield' => array(
+      'index_type' => 'string',
+    ),
+  );
+  $mappings['text'] = array(
+    'email' => array(
+      'email_textfield' => array(
+        'index_type' => 'string',
+      ),
+    ),
+  );
+  $mappings['ca_phone'] = array(
+    'phone_textfield' => array(
+      'index_type' => 'string',
+    ),
+  );
+  $mappings['link'] = array(
+    'link' => array(
+      'index_callback' => 'solrcck_link_field_callback',
+      'index_type' => 'string',
     ),
   );
 }
@@ -24,10 +47,10 @@ function solrcck_apachesolr_cck_fields_alter(&$mappings) {
 * @return an array of arrays. Each inner array is a value, and must be
 * keyed 'value' => $value
 */
-function solrcck_basic_field_callback($node, $fieldname) {
+function solrcck_link_field_callback($node, $fieldname) {
   $fields = array();
   foreach ($node->$fieldname as $field) {
-    $fields[] = array('value' => $field['value']);
+    $fields[] = array('value' => $field['url']);
   }
   return $fields;
 }
