@@ -6,7 +6,11 @@
 function solrcck_apachesolr_cck_fields_alter(&$mappings) {
   $mappings['number_integer'] = array(
     'optionwidgets_select' => array(
-      'display_callback' => 'solrcck_number_field_callback',
+      'display_callback' => 'solrcck_basic_field_callback',
+      'index_type' => 'integer',
+    ),
+    'number' => array(
+      'display_callback' => 'solrcck_basic_field_callback',
       'index_type' => 'integer',
     ),
   );
